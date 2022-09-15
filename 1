@@ -1,0 +1,27 @@
+using System;
+namespace Rubles
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Write("Придумайте пароль ");
+            string password = Console.ReadLine();
+            int tries = 0;
+            while (tries != 3)
+            {
+                Console.Write($"Введите пароль. У вас осталость {3 - tries} ");
+                string userTry = Console.ReadLine();
+                if (userTry == password)
+                {
+                    Console.WriteLine("Авторизация успешна!");
+                    break;
+                }
+                tries++;
+            }
+            if (tries == 3)
+                Console.WriteLine("Попытки закончились! Попробуйте через 24ч.");
+            Console.Read();
+        }
+    }
+}
