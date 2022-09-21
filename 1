@@ -5,20 +5,33 @@ namespace Rubles
     {
         static void Main(string[] args)
         {
-            Console.Write("Придумайте пароль ");
-            string password = Console.ReadLine();
+            string password;
             int tries = 0;
+            string userTry;
+
+            Console.Write("Придумайте пароль: ");
+            password = Console.ReadLine();
+            Console.Clear();
+
             while (tries != 3)
             {
-                Console.Write($"Введите пароль. У вас осталость {3 - tries} ");
-                string userTry = Console.ReadLine();
+                Console.WriteLine("Введите пароль");
+                Console.Write($"{tries + 1} попытка: ");
+                userTry = Console.ReadLine();
+
                 if (userTry == password)
                 {
                     Console.WriteLine("Авторизация успешна!");
                     break;
                 }
-                tries++;
+                else
+                {
+                    tries++;
+                    Console.Clear();
+                    Console.WriteLine("Аутентификация...");
+                }
             }
+
             if (tries == 3)
                 Console.WriteLine("Попытки закончились! Попробуйте через 24ч.");
             Console.Read();
