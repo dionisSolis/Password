@@ -22,18 +22,20 @@ namespace Rubles
                 if (userTry == password)
                 {
                     Console.WriteLine("Авторизация успешна!");
-                    break;
+                    tries = 3;
                 }
                 else
                 {
                     tries++;
                     Console.Clear();
-                    Console.WriteLine("Аутентификация...");
+                    Console.WriteLine("Неверно введенный пароль!");
+                    if (tries == 3)
+                    {
+                        Console.WriteLine("Попытки закончились! Попробуйте через 24ч.");
+                    }
                 }
             }
 
-            if (tries == 3)
-                Console.WriteLine("Попытки закончились! Попробуйте через 24ч.");
             Console.Read();
         }
     }
